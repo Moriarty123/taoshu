@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街：个人中心</title>
+		<link rel="stylesheet" href="../../../css/front/personal.css" />
+		<link rel="stylesheet" href="../../../css/front/personal_center.css" />
+		<link rel="stylesheet" href="../../../font/css/font-awesome.min.css" />
+		<link rel="shortcut icon" href="img/shu.ico" />
+	</head>
+	<script type="text/javascript" src="../../../js/front/jquery.min.js" ></script>
+	<body>
+		
+		<?php
+		session_start();
+		?>
+		
+		<div class="top">
+			<div class="logo">
+				<div class="img"><a href="?"><img src="../../../img/taoshujie.png" /></a></div>
+				<div class="txt"><?php echo $_SESSION['username']; ?>-个人中心</div>
+				<div class="right">
+					<a href="?">首页</a> <span class="shu">|</span>
+					<a href="?c=saleBook&a=showAllSale_book">出售</a> <span class="shu">|</span>
+					<a href="?c=inquiry&a=showAllInquiry">求购</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="personal_info">
+			<div class="menu">
+				<div class="menu_title">个人设置</div>
+				<ul>
+					<li class="menu_li">
+						<a href="?c=user&a=showPersonal&id=<?php echo $_SESSION['userid']; ?>" class="menu_a" id="on">基本信息</a>
+					</li>
+					<li class="menu_li">
+						<a href="?c=user&a=showUpdatePwd" class="menu_a">修改密码</a>
+					</li>
+				</ul>
+				
+				<div class="menu_title">订单</div>
+				<ul>
+					<li class="menu_li"><a href="?c=shoporder&a=receiveorder" class="menu_a">收到的订单</a></li>
+					<li class="menu_li"><a href="?c=shoporder&a=myorder" class="menu_a">我下的订单</a></li>
+				</ul>
+				
+				<div class="menu_title">书籍</div>
+				<ul>
+					<li class="menu_li"><a href="?c=saleBook&a=mySaleBook" class="menu_a">出售书籍</a></li>
+					<li class="menu_li"><a href="?c=inquiry&a=myInquiry" class="menu_a">求购书籍</a></li>
+				</ul>
+				
+				<div class="menu_title">留言</div>
+				<ul>
+					<li class="menu_li"><a href="?c=bcomment&a=myBComment" class="menu_a">出售留言</a></li>
+					<li class="menu_li"><a href="?c=scomment&a=mySComment" class="menu_a">求购留言</a></li>
+				</ul>
+			</div>
+			
+			<!--基本信息-->
+			<div class="menu_info" style="display: block;">
+				<div class="menu_head">
+					<ul>
+						<li id="active">会员基本信息</li>
+						<li>头像信息</li>
+					</ul>
+				</div>
+				<!--会员基本信息-->
+				<div class="menu_detail" style="display: block;">
+					<form action="?c=user&a=updateUser" method="post" onsubmit="return checkAll()">
+						<input type="hidden" name="id" value="<?php echo $user['user_id']; ?>" />
+						<div class="menu_list">
+							<label class="title" style="letter-spacing: 0.95em;">昵 称</label>
+							<input type="text" class="content" name="nickname" value="<?php echo $user['nickname']; ?>" onfocus="nickName()" onblur="checkNick()" />
+						</div>
+						<div class="msg" id="nick_msg"></div>
+						
+						<div class="menu_list">
+							<label class="title">真实姓名</label>
+							<input type="text" class="content" name="realname" value="<?php echo $user['user_realname']; ?>" onfocus="realName()" onblur="checkReal()" />
+						</div>
+						<span class="xing">*</span>
+						<div class="msg" id="real_msg"></div>
+						
+						<div class="menu_list">
+							<label class="title" style="letter-spacing: 0.95em;">性 别</label>
+							<input type="radio" value="男" name="sex" class="sex" checked <?php if($user['user_sex'] == "男") {echo "checked";} ?> /> 男
+							<input type="radio" value="女" name="sex" class="sex" <?php if($user['user_sex'] == "女") {echo "checked";} ?> /> 女
+						</div>
+						<span class="xing">*</span>
+						<div class="msg" id="sex_msg"></div>
+						
+						<div class="menu_list">
+							<label class="title">所在班别</label>
+							<select class="grade" name="grade">
+								<option value="0" selected>请选择年级</option>
+								<option value="2014" <?php if($user['grade'] == "2014") {echo "selected";} ?> >2014</option>
+								<option value="2015" <?php if($user['grade'] == "2015") {echo "selected";} ?> >2015</option>
+								<option value="2016" <?php if($user['grade'] == "2016") {echo "selected";} ?> >2016</option>
+								<option value="2017" <?php if($user['grade'] == "2017") {echo "selected";} ?> >2017</option>
+							</select>
+							<select class="class" name="class">
+								<option value="0">请选择专业</option>
+								<?php foreach($class as $key => $value){ ?>
+								<option value="<?php echo $value['class_id'];?>" <?php if( $user['class_name'] == $value['class_name'] ) echo "selected"; ?> > <?php echo $value['class_name'];?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<span class="xing">*</span>
+						<div class="msg" id="grade_msg"></div>
+						
+						<div class="menu_list">
+							<label class="title">详细地址</label>
+							<input type="text" class="content" name="addr" value="<?php echo $user['user_addr']; ?>" onfocus="Addr()" onblur="checkAddr()" />
+						</div>
+						<span class="xing">*</span>
+						<div class="msg" id="addr_msg"></div>
+						
+						<div class="menu_list">
+							<label class="title">联系方式</label>
+							<input type="text" class="content" name="tel" value="<?php echo $user['user_tel']; ?>" onfocus="Tel()" onblur="checkTel()" />
+						</div>
+						<span class="xing">*</span>
+						<div class="msg" id="tel_msg"></div>
+						
+						<div class="menu_list r5">
+							<label class="title t5">个人说明</label>
+							<textarea cols="20" rows="2" class="c5" name="content" onfocus="Content()" onblur="checkContent()" ><?php echo $user['user_content']; ?></textarea>
+						</div>
+						<div class="msg" id="content_msg"></div>
+						
+						<input type="submit" class="button" value="修改"></input>
+					</form>
+				</div>
+				
+				<!--头像信息-->
+				<div class="menu_detail" >
+					<div class="imgdiv">
+						<form action="?c=user&a=updateImg" name="form" method="post" enctype="multipart/form-data">
+							<div class="img_icon" id="preview"><img src="<?php echo $_SESSION['userimg']; ?>" /></div>
+							<input type="file" name="img" style="margin: 30px 63px 0 183px;"/>
+							<input type="submit" value="上传" class="img_button"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<iframe src="../Application/front/Views/common_foot.html" width="100%" height="122" frameborder="0"></iframe>
+	</body>
+	<script type="text/javascript" src="../../../js/front/personal_center.js" ></script>
+</html>

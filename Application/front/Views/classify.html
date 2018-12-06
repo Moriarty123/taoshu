@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街：图书分类大全</title>
+		<link rel="shortcut icon" href="img/shu.ico" />
+		<link rel="stylesheet" href="css/front/classify.css" />
+		<link rel="stylesheet" href="css/front/common_top.css" />
+	</head>
+	<body>
+		<?php
+		session_start();
+		?>
+		<div class="q" id="q">
+			<div class="top_content">
+				<div class="welcome_txt">
+					你好，欢迎来到淘书街！
+				</div>
+				<div class="right">
+					请 <a href='?c=user&a=login' target="_blank">登录</a> 
+					<a href='?c=user&a=reg' style='color: #00CFBE; padding-left: 4px;' target="_blank">免费注册</a>
+					<span class='shu'>|</span>
+					<a href='?c=shopcar&a=showShopCar' target="_blank">购物车</a> <span class='shu'>|</span>
+					<a href='?c=saleBook&a=addSale' target="_blank">我要出售</a> <span class='shu'>|</span>
+					<a href='?c=inquiry&a=addInquiry' target="_blank">我要求购</a> <span class='shu'>|</span>
+					<a href='?p=back&c=admin&a=login' target="_blank">进入后台</a>
+				</div>
+			</div>
+		</div>
+		<div class="q" id="q1">
+			<div class="top_content">
+				<div class="welcome_txt">
+					你好，欢迎来到淘书街！
+				</div>
+				<div class="right">
+					<a href="?c=user&a=showPersonal&id=<?php echo $_SESSION['userid']; ?>"><?php echo $_SESSION['username']; ?></a> <span class='shu'>|</span>
+					<a href='?c=shopcar&a=showShopCar'>购物车</a> <span class='shu'>|</span>
+					<a href='?c=saleBook&a=addSale' target="_blank">我要出售</a> <span class='shu'>|</span>
+					<a href='?c=inquiry&a=addInquiry' target="_blank">我要求购</a> <span class='shu'>|</span>
+					<a href='?p=back&c=admin&a=login' target="_blank">进入后台</a>
+				</div>
+			</div>
+		</div>
+		<?php
+		if(!isset($_SESSION['username']) || $_SESSION['username']==''){  
+			echo "<script type='text/javascript'>
+					document.getElementById('q').style.display = 'block';
+					document.getElementById('q1').style.display = 'none';
+				</script>";
+        }
+        else{
+      	    echo "<script type='text/javascript'>
+      	    		document.getElementById('q1').style.display = 'block';
+      	    		document.getElementById('q').style.display = 'none';
+      	    	</script>";
+        }
+		?>
+		<div class="w">
+			<!--头部-->
+			<div class="top">
+				<div class="logo">
+					<a href="?"><img src="../../../img/taoshujie.png" /></a>
+				</div>
+				<form action="?c=saleBook&a=search" method="post" class="search" onsubmit="return checkSearch();">
+					<div class="search_div">
+						<input type="text" placeholder="出售书籍名称" name="keyword" class="search_a"/>
+						<input type="submit" class="search_b" value="搜索"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--导航栏-->
+		<div class="nav">
+			<div class="nav_bar">
+				<div class="all_type nav_active">
+					全部图书分类
+					<span class="all_type_a"></span>
+				</div>
+				<div class="nav_r">
+					<ul>
+						<a href="?"><li>首页</li></a>
+						<a href="?c=type_second&a=showAllType_second"><li class="nav_active">分类</li></a>
+						<a href="?c=saleBook&a=showAllSale_book"><li>出售</li></a>
+						<a href="?c=inquiry&a=showAllInquiry"><li>求购</li></a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="classify">
+			<div class="classify_title">图书分类大全</div>
+			<div class="classify_all">
+				<ul>
+					<li>
+						<div class="classify1">经济金融</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_jj as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">计算机与网络</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_jsj as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">管理</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_gl as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">语言学习</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_yy as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">管理</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_gl as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">语言学习</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_yy as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">文学小说</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_wx as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">医学卫生</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_yx as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">教育考试</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_jy as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">自然科学</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_zr as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">法律</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_fl as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">体育保健</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_ty as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">心理</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_xl as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">新闻传媒</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_xw as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">成功励志</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_cg as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+					<li>
+						<div class="classify1">生活时尚</div><span class="shu shu1">|</span>
+						<div class="classify2">
+							<?php foreach($type_second_sh as $key => $value){ ?>
+							<a href="?c=saleBook&a=detail&id=<?php echo $value['second_id']; ?>" target="_blank"><?php echo $value['second_name']; ?></a><span class="shu">|</span>
+							<?php } ?>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<iframe src="../Application/front/Views/common_foot.html" width="100%" height="122" frameborder="0"></iframe>
+	</body>
+	<script type="text/javascript" src="js/front/common_top.js" ></script>
+</html>

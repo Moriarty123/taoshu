@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街添加新会员</title>
+		<link rel="shortcut icon" href="img/shu.ico" />
+		<link rel="stylesheet" href="../../../css/back/user.css" />
+		<link rel="stylesheet" href="../../../css/back/common.css" />
+		<link rel="stylesheet" href="../../../css/back/add.css" />
+		
+		<script type="text/javascript" src="../../../js/back/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/back/public.js"></script>
+		<script type="text/javascript" src="../../../js/back/updatePwd.js"></script>
+	</head>
+	<body>
+		<!-- 头部 -->
+		<div class="head">
+			<div class="headL">
+				<img class="headLogo" src="../../../img/admin_logo.png"/>
+			</div>
+			<div class="headR">
+				<span style="margin-bottom: 8px;display: inline-block;">
+					<!-- 日历 -->
+					<SCRIPT type=text/javascript src="../../../js/back/clock.js"></SCRIPT>
+					<SCRIPT type=text/javascript>showcal();</SCRIPT>
+	            </span>
+	            <br />
+	            <div class="head_op">
+					<a href="?p=back&c=admin&a=exitLogin" rel="external">【安全退出】</a>
+					<a href="?" target="_blank">【回到前台】</a>
+	            </div>
+			</div>
+		</div>
+		
+	<!-- 左边节点 -->
+	<div class="container">
+		<div class="leftsidebar_box">
+			<a href="?p=back&c=admin">
+				<div class="line">
+					<img src="../../../img/coin01.png" />&nbsp;&nbsp;首页
+				</div>
+			</a>
+			<!--用户管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin07.png" />
+					<img class="icon2" src="../../../img/coin08.png" /> 用户管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=user&a=showUser">会员管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--用户管理结束-->
+			<!--书籍管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/ico1.png" />
+					<img class="icon2" src="../../../img/ico.png" /> 书籍管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=sale&a=showSale">出售书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=inquiry&a=showInquiry">求购书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--书籍管理结束-->
+			<!--留言管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin11.png" />
+					<img class="icon2" src="../../../img/coin12.png" /> 留言管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=bcomment&a=showBComment" class="cks">出售留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=scomment&a=showSComment" class="cks">求购留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--留言管理结束-->
+			<!--订单管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin17.png" />
+					<img class="icon2" src="../../../img/coin18.png" /> 订单管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=shoporder&a=showOrder" class="cks">订单管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--订单管理结束-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/notice2.png" />
+					<img class="icon2" src="../../../img/notice1.png" /> 公告管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=notice&a=showNotice" class="cks">公告管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<!--左边结点结束-->
+	
+	<!--添加用户开始-->
+	<div id="MainForm">
+		<div class="form_boxA">
+			<div class="a">
+				<h2>淘书街添加新管理员</h2>
+			</div>
+			<form action="?p=back&c=admin&a=addAdmin" method="post" class="add_form" onsubmit="return checkAddAdmin()">
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>用户名：</label>
+					<input type="text" name="name" placeholder="请输入用户名" class="add_input" onfocus="Name()" onblur="checkName()"/>
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>密码：</label>
+					<input type="password" name="pwd" placeholder="请输入密码" class="add_input" onfocus="Pwd()" onblur="checkPwd()"/>
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>确认密码：</label>
+					<input type="password" name="repwd" placeholder="请输入确认密码" class="add_input" onfocus="Repwd()" onblur="checkRepwd()"/>
+				</div>
+				<input type="submit" value="提交" class="add_submit" />
+			</form>
+		</div>
+	</div>
+	<!--添加用户结束-->
+	</body>
+</html>

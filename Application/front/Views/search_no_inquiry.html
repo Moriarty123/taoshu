@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街-检索：<?php echo $keyword; ?></title>
+		<link rel="shortcut icon" href="img/shu.ico" />
+		<link rel="stylesheet" href="css/front/common_top.css" />
+		<link rel="stylesheet" href="css/front/search_no.css" />
+	</head>
+	<body>
+		
+		<div class="q" id="q">
+			<div class="top_content">
+				<div class="welcome_txt">
+					你好，欢迎来到淘书街！
+				</div>
+				<div class="right">
+					请 <a href='?c=user&a=login' target="_blank">登录</a> 
+					<a href='?c=user&a=reg' style='color: #00CFBE; padding-left: 4px;' target="_blank">免费注册</a>
+					<span class='shu'>|</span>
+					<a href='?c=shopcar&a=showShopCar' target="_blank">购物车</a> <span class='shu'>|</span>
+					<a href='?c=saleBook&a=addSale' target="_blank">我要出售</a> <span class='shu'>|</span>
+					<a href='?c=inquiry&a=addInquiry' target="_blank">我要求购</a> <span class='shu'>|</span>
+					<a href='?p=back&c=admin&a=login' target="_blank">进入后台</a>
+				</div>
+			</div>
+		</div>
+		<div class="q" id="q1">
+			<div class="top_content">
+				<div class="welcome_txt">
+					你好，欢迎来到淘书街！
+				</div>
+				<div class="right">
+					<a href="?c=user&a=showPersonal&id=<?php echo $_SESSION['userid']; ?>"><?php echo $_SESSION['username']; ?></a> <span class='shu'>|</span>
+					<a href='?c=shopcar&a=showShopCar'>购物车</a> <span class='shu'>|</span>
+					<a href='?c=saleBook&a=addSale' target="_blank">我要出售</a> <span class='shu'>|</span>
+					<a href='?c=inquiry&a=addInquiry' target="_blank">我要求购</a> <span class='shu'>|</span>
+					<a href='?p=back&c=admin&a=login' target="_blank">进入后台</a>
+				</div>
+			</div>
+		</div>
+		<?php
+		if(!isset($_SESSION['username']) || $_SESSION['username']==''){  
+			echo "<script type='text/javascript'>
+					document.getElementById('q').style.display = 'block';
+					document.getElementById('q1').style.display = 'none';
+				</script>";
+        }
+        else{
+      	    echo "<script type='text/javascript'>
+      	    		document.getElementById('q1').style.display = 'block';
+      	    		document.getElementById('q').style.display = 'none';
+      	    	</script>";
+        }
+		?>
+		<div class="w">
+			<!--头部-->
+			<div class="top">
+				<div class="logo">
+					<a href="?"><img src="img/taoshujie.png" /></a>
+				</div>
+				<form action="?c=inquiry&a=search" method="post" class="search" onsubmit="return checkSearch();">
+					<div class="search_div">
+						<input type="text" placeholder="求购书籍名称" name="keyword" class="search_a"/>
+						<input type="submit" class="search_b" value="搜索"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--导航栏-->
+		<div class="nav">
+			<div class="nav_bar">
+				<div class="all_type nav_active">
+					全部图书分类<span class="all_type_a"></span>
+				</div>
+				<div class="nav_r">
+					<ul>
+						<a href="?"><li>首页</li></a>
+						<a href="?c=type_second&a=showAllType_second"><li>分类</li></a>
+						<a href="?c=saleBook&a=showAllSale_book"><li>出售</li></a>
+						<a href="?c=inquiry&a=showAllInquiry" class="nav_active"><li>求购</li></a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="search_content">
+			<div class="search_title">关键字：<?php echo $keyword; ?></div>
+			<div class="search_no">
+				<div class="no_up">
+					<span class="icon_box"></span>
+					<span>抱歉，没有找到与 <span class="txt"><?php echo $keyword; ?></span> 相关的商品</span>
+				</div>
+				<div class="no_down">
+					<div class="tip_txt">
+						<span>建议你：</span><br />
+						<span>1、查看输入的文字是否有误</span><br />
+						<span>2、修改或减少关键字，用空格隔开，不要带标点符号，不要使用繁体字 </span><br />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<iframe src="../Application/front/Views/common_foot.html" width="100%" height="122" frameborder="0"></iframe>
+		
+	</body>
+	<script type="text/javascript" src="js/front/common_top.js" ></script>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街出售留言管理</title>
+		<link rel="shortcut icon" href="img/shu.ico" />
+		<link rel="stylesheet" href="../../../css/back/user.css" />
+		<link rel="stylesheet" href="../../../css/back/common.css" />
+		<link rel="stylesheet" href="../../../css/back/page.css" />
+		<link rel="stylesheet" href="../../../font/css/font-awesome.min.css" />
+		
+		<script type="text/javascript" src="../../../js/back/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/back/public.js"></script>
+		<script type="text/javascript" src="../../../js/back/search.js"></script>
+		<script type="text/javascript" src="../../../js/back/CheckBox.js"></script>
+		
+		<style>
+			.form_boxA td{
+				font-size: 13px;
+    			padding: 14px 7px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 头部 -->
+		<div class="head">
+			<div class="headL">
+				<img class="headLogo" src="../../../img/admin_logo.png"/>
+			</div>
+			<div class="headR">
+				<span style="margin-bottom: 8px;display: inline-block;">
+					<!-- 日历 -->
+					<SCRIPT type=text/javascript src="../../../js/back/clock.js"></SCRIPT>
+					<SCRIPT type=text/javascript>showcal();</SCRIPT>
+	            </span>
+	            <br />
+	            <div class="head_op">
+					<a href="?p=back&c=admin&a=exitLogin" rel="external">【安全退出】</a>
+					<a href="?" target="_blank">【回到前台】</a>
+	            </div>
+			</div>
+		</div>
+		
+	<!-- 左边节点 -->
+	<div class="container">
+		<div class="leftsidebar_box">
+			<a href="?p=back&c=admin">
+				<div class="line">
+					<img src="../../../img/coin01.png" />&nbsp;&nbsp;首页
+				</div>
+			</a>
+			<!--用户管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin07.png" />
+					<img class="icon2" src="../../../img/coin08.png" /> 用户管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=user&a=showUser">会员管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--用户管理结束-->
+			<!--书籍管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/ico1.png" />
+					<img class="icon2" src="../../../img/ico.png" /> 书籍管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=sale&a=showSale">出售书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=inquiry&a=showInquiry">求购书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--书籍管理结束-->
+			<!--留言管理开始-->
+			<dl class="system_log" id="user">
+				<dt>
+					<img class="icon1" src="../../../img/coin11.png" />
+					<img class="icon2" src="../../../img/coin12.png" /> 留言管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=bcomment&a=showBComment" class="cks">出售留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=scomment&a=showSComment" class="cks">求购留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--留言管理结束-->
+			<!--订单管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin17.png" />
+					<img class="icon2" src="../../../img/coin18.png" /> 订单管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=shoporder&a=showOrder" class="cks">订单管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--订单管理结束-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/notice2.png" />
+					<img class="icon2" src="../../../img/notice1.png" /> 公告管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=notice&a=showNotice" class="cks">公告管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<!--左边结点结束-->
+	
+	<!--用户列表开始-->
+	<div id="MainForm">
+		<div class="form_boxA">
+			<div class="a">
+				<h2>淘书街出售留言列表</h2>
+				<form action="?p=back&c=bcomment&a=search" method="post" onsubmit="return checkSearch()" class="searchform">
+					<input type="text" class="search" placeholder="留言内容" name="search" />
+					<input type="submit" class="search_button" value="搜索" />
+				</form>
+				<a href="?p=back&c=bcomment&a=add" class="addUser"><i class="fa fa-plus-circle"></i> 添加新出售留言</a>
+			</div>
+			<form action="?p=back&c=bcomment&a=delCheck" method="post">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th><input type="checkbox" name="fullChoose" onclick="fullChecked(this)" /></th>
+					<th>ID</th>
+					<th>书名</th>
+					<th>留言内容</th>
+					<th>留言时间</th>
+					<th>留言人</th>
+					<th>操作</th>
+				</tr>
+				<?php foreach($bcomment as $key => $value){ ?>
+				<tr>
+					<td><input type="checkbox" name="ids[]" onclick="eachChecked()" class="eachChoose" value="<?php echo $value['bcomment_id']; ?>"/></td>
+					<td><?php echo $value['bcomment_id']; ?></td>
+					<td class="sale_c" style="max-width: 90px;"><?php echo $value['sale_name']; ?></td>
+					<td class="sale_c" style="max-width: 120px;"><?php echo strip_tags($value['bcomment_content']); ?></td>
+					<td class="sale_c" style="max-width: 80px;"><?php echo $value['bcomment_time']; ?></td>
+					<td><?php echo $value['user_realname']; ?></td>
+					<td>
+						<a href="?p=back&c=bcomment&a=edit&id=<?php echo $value['bcomment_id']; ?>" class="op"><i class="fa fa-edit" title="编辑"></i></a> 
+						<a href="?p=back&c=bcomment&a=del&id=<?php echo $value['bcomment_id']; ?>" class="op" onclick="return del()">
+							<i class="fa fa-trash-o" title="删除"></i>
+						</a> 
+					</td>
+				</tr>
+				<?php } ?>
+			</table>
+			<p class="msg">
+				<span id="notdisplay" style="display: none;"></span>
+				<input type="submit" value="删除选中" class="delBtn" id="delBtn" disabled="disabled" onclick='return checkdel();'/>
+				共找到 <?php echo $to; ?> 条会员信息，每页显示15条记录
+			</p>
+			<div class="page">
+				<?php
+				echo $page_banner;
+				?>
+			</div>
+			</form>
+		</div>
+	</div>
+	<!--用户列表结束-->
+	
+	</body>
+</html>
+
+
+<script>
+	var user = document.getElementById("user");
+	user.getElementsByClassName("icon1")[0].style.display = "block";
+	user.getElementsByClassName("icon2")[0].style.display = "none";
+	user.getElementsByClassName("icon3")[0].style.display = "block";
+	user.getElementsByClassName("icon4")[0].style.display = "none";
+	user.getElementsByClassName("icon5")[0].style.display = "block";
+	user.getElementsByClassName("coin11")[0].style.display = "block";
+	user.getElementsByClassName("coin22")[0].style.display = "none";
+	
+	user.getElementsByTagName("dd")[1].style.display = "block";
+	
+	user.getElementsByClassName("cks")[0].setAttribute("class", "menu_chioce2");
+	user.getElementsByTagName("dd")[0].style.display = "block";
+	
+	function del(){
+		return window.confirm("你确认要删除该留言信息吗？");
+	}
+	function checkdel(){
+		return window.confirm("你确认要删除选中的留言信息吗？");
+	}
+</script>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>淘书街修改会员信息</title>
+		<link rel="shortcut icon" href="img/shu.ico" />
+		<link rel="stylesheet" href="../../../css/back/user.css" />
+		<link rel="stylesheet" href="../../../css/back/common.css" />
+		<link rel="stylesheet" href="../../../css/back/add.css" />
+		<link rel="stylesheet" href="../../../css/back/edit.css" />
+		
+		<script type="text/javascript" src="../../../js/back/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../js/back/public.js"></script>
+		<script type="text/javascript" src="../../../js/back/addUser.js"></script>
+		<script type="text/javascript" src="../../../js/back/showImg.js"></script>
+	</head>
+	<body>
+		<?php
+		session_start();	
+		?>
+		<!-- 头部 -->
+		<div class="head">
+			<div class="headL">
+				<img class="headLogo" src="../../../img/admin_logo.png"/>
+			</div>
+			<div class="headR">
+				<span style="margin-bottom: 8px;display: inline-block;">
+					<!-- 日历 -->
+					<SCRIPT type=text/javascript src="../../../js/back/clock.js"></SCRIPT>
+					<SCRIPT type=text/javascript>showcal();</SCRIPT>
+	            </span>
+	            <br />
+	            <div class="head_op">
+					<a href="?p=back&c=admin&a=exitLogin" rel="external">【安全退出】</a>
+					<a href="?" target="_blank">【回到前台】</a>
+	            </div>
+			</div>
+		</div>
+		
+	<!-- 左边节点 -->
+	<div class="container">
+		<div class="leftsidebar_box">
+			<a href="?p=back&c=admin">
+				<div class="line">
+					<img src="../../../img/coin01.png" />&nbsp;&nbsp;首页
+				</div>
+			</a>
+			<!--用户管理开始-->
+			<dl class="system_log" id="user">
+				<dt>
+					<img class="icon1" src="../../../img/coin07.png" />
+					<img class="icon2" src="../../../img/coin08.png" /> 用户管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=user&a=showUser">会员管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--用户管理结束-->
+			<!--书籍管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/ico1.png" />
+					<img class="icon2" src="../../../img/ico.png" /> 书籍管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=sale&a=showSale">出售书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a class="cks" href="?p=back&c=inquiry&a=showInquiry">求购书籍</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--书籍管理结束-->
+			<!--留言管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin11.png" />
+					<img class="icon2" src="../../../img/coin12.png" /> 留言管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=bcomment&a=showBComment" class="cks">出售留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=scomment&a=showSComment" class="cks">求购留言</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--留言管理结束-->
+			<!--订单管理开始-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/coin17.png" />
+					<img class="icon2" src="../../../img/coin18.png" /> 订单管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=shoporder&a=showOrder" class="cks">订单管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+			<!--订单管理结束-->
+			<dl class="system_log">
+				<dt>
+					<img class="icon1" src="../../../img/notice2.png" />
+					<img class="icon2" src="../../../img/notice1.png" /> 公告管理
+					<img class="icon3" src="../../../img/coin19.png" />
+					<img class="icon4" src="../../../img/coin20.png" />
+				</dt>
+				<dd>
+					<img class="coin11" src="../../../img/coin111.png" />
+					<img class="coin22" src="../../../img/coin222.png" />
+					<a href="?p=back&c=notice&a=showNotice" class="cks">公告管理</a>
+					<img class="icon5" src="../../../img/coin21.png" />
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<!--左边结点结束-->
+	
+	<!--main开始-->
+	<div id="MainForm">
+		<div class="form_boxA">
+			<div class="a">
+				<h2>淘书街-修改 <?php echo $edit['user_realname']; ?> 基本信息</h2>
+			</div>
+			<form action="?p=back&c=user&a=editUser" method="post" enctype="multipart/form-data" class="add_form" onsubmit="return checkEdit()" style="width: 700px;">
+				<div style="float: left;">
+				<input type="hidden" name="id" value="<?php echo $edit['user_id']; ?>" />
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>用户名：</label>
+					<input type="text" name="name" class="add_input" placeholder="4-15位字符" value="<?php echo $edit['user_name']; ?>" />
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>性别：</label>
+					<input type="radio" value="男" name="sex" class="add_radio" checked <?php if($edit['user_sex'] == "男") {echo "checked";} ?> /> 男
+					<input type="radio" value="女" name="sex" class="add_radio" <?php if($edit['user_sex'] == "女") {echo "checked";} ?> /> 女
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>真实姓名：</label>
+					<input type="text" name="realname" class="add_input" placeholder="请输入真实姓名" value="<?php echo $edit['user_realname']; ?>" onfocus="Real()" onblur="checkReal()" />
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>联系方式：</label>
+					<input type="text" name="tel" placeholder="输入联系方式" class="add_input" value="<?php echo $edit['user_tel']; ?>" onfocus="Tel()" onblur="checkTel()"/>
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>地址：</label>
+					<input type="text" name="addr" placeholder="输入详细地址" class="add_input" value="<?php echo $edit['user_addr']; ?>" onfocus="Addr()" onblur="checkAddr()"/>
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>年级：</label>
+					<select name="grade" class="add_input">
+						<option value="2014" <?php if($edit['grade'] == "2014") {echo "selected";} ?> >2014</option>
+						<option value="2015" <?php if($edit['grade'] == "2015") {echo "selected";} ?> >2015</option>
+						<option value="2016" <?php if($edit['grade'] == "2016") {echo "selected";} ?> >2016</option>
+						<option value="2017" <?php if($edit['grade'] == "2017") {echo "selected";} ?> >2017</option>
+					</select>
+				</div>
+				<div class="add_list">
+					<label class="add_label"><span class="xing">*</span>专业：</label>
+					<select name="class" class="add_input">
+						<?php foreach($class as $key => $value){ ?>
+						<option value="<?php echo $value['class_id'];?>" <?php if( $edit['class_name'] == $value['class_name'] ) echo "selected"; ?> > <?php echo $value['class_name'];?></option>
+						<?php } ?>
+					</select>
+				</div>
+				<div class="add_list">
+					<label class="add_label" style="margin-top: 30px;">个人说明：</label>
+					<textarea name="content" class="add_textarea"><?php echo $edit['user_content']; ?></textarea>
+				</div>
+				</div>
+				<div class="user_right">
+					<div class="img_icon" id="preview"><img src="<?php echo $edit['user_img']; ?>" class="edituser_img" /></div>
+					<input type="file" name="img" style="margin: 30px 63px 0 40px;"/>
+				</div>
+				<input type="submit" value="修改" class="add_submit" style="margin-left: 300px;" />
+			</form>
+		</div>
+	</div>
+	<!--main结束-->
+	
+	</body>
+</html>
+<script>
+	var user = document.getElementById("user");
+	user.getElementsByClassName("icon1")[0].style.display = "block";
+	user.getElementsByClassName("icon2")[0].style.display = "none";
+	user.getElementsByClassName("icon3")[0].style.display = "block";
+	user.getElementsByClassName("icon4")[0].style.display = "none";
+	user.getElementsByClassName("icon5")[0].style.display = "block";
+	user.getElementsByClassName("coin11")[0].style.display = "block";
+	user.getElementsByClassName("coin22")[0].style.display = "none";
+	user.getElementsByClassName("cks")[0].setAttribute("class", "menu_chioce2");
+	user.getElementsByTagName("dd")[0].style.display = "block";
+</script>
